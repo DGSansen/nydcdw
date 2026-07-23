@@ -18,8 +18,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: 添加gradlew执行权限
-        run: chmod +x ./gradlew
+      # 强制给gradlew添加执行权限
+      - name: 赋予gradlew可执行权限
+        run: |
+          ls -la
+          chmod +x ./gradlew
 
       - name: 编译打包APK
         run: ./gradlew assembleDebug --no-daemon
